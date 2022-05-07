@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.main{
+    /* background-color:yellow; */
+    padding-top: 50px;
+    width: 400px;
+    margin: auto;
+    justify-content: center;
+}
+
+.line{
+    margin-top: 15px;
+}
+
+input[type="submit"]{
+    background-color:#00ff40;
+    width: 130px;
+    height: 35px;
+}

@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.container{
+    align-items: column; 
+    padding: 50px;
+    width: 500px;
+    margin:auto;
+}
+.line{
+    display:flex;
+}
+.left{
+    width:100px;
+}
+
+.line:last-child{
+    display:flex;
+    justify-content:center;
+}
+
+.line{
+    margin-top: 15px;
+}
+
+input[type="submit"]{
+    background-color: green;
+    width: 80px;
+    height: 40px;
+}
+
