@@ -20,7 +20,7 @@
 
         <?php
         include 'control.php';
-        data = new data();
+        data = new Data();
             if(isset($_POST['submit'])){
                 if($_POST['txt_email'] != )
             }
