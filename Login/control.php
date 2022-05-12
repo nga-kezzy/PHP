@@ -1,12 +1,28 @@
 <?php
-    include'connect.php';
-    class data{
-        Public function login() {
+    include'../connect.php';
+
+    class Data{
+        public function users($fullname, $email, $password){ //thêm dl vào database
             global $conn;
-            $sql = "SELECT * FROM rigiter";
-            $run = $conn->query($sql);
-            $num = mysql_num_rows($run);
+            $sql = "INSERT INTO users(fullname, email, password )   
+            VALUES('$fullname', '$email', '$password')";
+            $run = mysqli_query($conn,$sql);
+            return $run;
+        }
+
+        public function login($email, $password){
+            global $conn;
+            $sql = " SELECT * FROM users WHERE email = '$email'and password = '$password'";
+            $run = mysqli_query($conn,$sql);
+            $num = mysqli_num_rows($run);
             return $num;
+        }
+
+        public function login_user(){   // kiểm tra email có đúng ko
+            global $conn;
+            $sql = "SELECT * FROM users ";
+            $run = mysqli_query($conn,$sql);
+            return $run;
         }
     }
 ?>
