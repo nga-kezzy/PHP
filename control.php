@@ -1,5 +1,5 @@
 <?php
-    include'../connect.php';
+    include'connect.php';
 
     class Data{
         public function users($fullname, $email, $password){ //thêm dl vào database
@@ -18,9 +18,9 @@
             return $num;
         }
 
-        public function login_user(){   // kiểm tra email có đúng ko
+        public function login_user($user){   // kiểm tra email có đúng ko
             global $conn;
-            $sql = "SELECT * FROM users ";
+            $sql = "SELECT * FROM user WHERE username = '$user' ";
             $run = mysqli_query($conn,$sql);
             return $run;
         }
