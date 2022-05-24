@@ -12,12 +12,12 @@ session_start();
     <title>Document</title>
 </head>
 <body>
-    <div>
+    <div class="container">
         
         <form method="POST">
-            <input type="email" name="txt_email" placeholder="Email" class="user">  <br>
-            <input type="password" name="txt_password" placeholder="Password" class="user"> <br>
-            <input type="submit"  name="submit" value="Login" class="submit">
+            <input type="email" name="txt_email" placeholder="Email" > <br>
+            <input type="password" name="txt_password" placeholder="Password" > <br>
+            <input type="submit"  name="submit" value="Login" class="submit"> <br>
         </form>
 
         <?php
@@ -25,8 +25,9 @@ session_start();
         include'control.php';
 
         $data = new Data();
+
         if( isset($_POST['submit']) && $_POST['txt_email'] != '' && $_POST['txt_password'] != ''){
-            $login_user = $data ->login_user();
+            $login_user = $data ->login_user($_POST['txt_email']);
             foreach($login_user as $value){
                 $user = $value['email'];
                 
@@ -36,11 +37,16 @@ session_start();
             }
             else{
                 $login = $data->login($_POST['txt_email'], $_POST['txt_password']);
+                echo$login;
                 if($login !=1){
                     echo "<script> alert('Mật khẩu không đúng')</script>";
                 }
                 else{
                     echo "<script> alert('Đăng nhập thành công')</script>";
+
+                    $_SESSION['username'] = $_POST['txt_email'];
+                    
+                    header("location:admin.php");
                 }
 
             }

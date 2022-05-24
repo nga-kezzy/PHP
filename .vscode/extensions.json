@@ -1,0 +1,34 @@
+{
+    
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "C_Cpp.updateChannel": "Insiders",
+    "terminal.integrated.tabs.enabled": true,
+    "debug.onTaskErrors": "debugAnyway",
+    "workbench.editor.enablePreview": false,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "cmake.configureOnOpen": true,
+    "editor.cursorSmoothCaretAnimation": true,
+    "color-highlight.markerType": "underline",
+    "powermode.enabled": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "git.autofetch": true,
+    "bracketPairColorizer.depreciation-notice": false,
+    "workbench.iconTheme": "vscode-icons",
+    "tabnine.experimentalAutoImports": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "settingsSync.ignoredExtensions": [
+        "formulahendry.auto-rename-tag"
+    ],
+    "editor.formatOnSave": true,
+    "editor.showDeprecated": false,
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "dart.debugExternalPackageLibraries": true,
+    "dart.debugSdkLibraries": true,
+    "window.menuBarVisibility": "compact",
+    "workbench.colorTheme": "Dracula"
+}

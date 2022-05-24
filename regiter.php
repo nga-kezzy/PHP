@@ -1,3 +1,7 @@
+
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,8 +31,8 @@
             <div class="line">
                 <div class="left">Gender</div>
                 <div class="right">
-                    <input type="radio" name="txt_gender" value="nam" > Make
-                    <input type="radio" name="txt_gender" value="nu" > Famake
+                    <input type="radio" name="txt_gender" value="Nam" > Male
+                    <input type="radio" name="txt_gender" value="Nữ" > Female
                 </div>
             </div>
             <div class="line">
@@ -82,38 +86,39 @@
     $_POST['txt_phone'] != '' &&
     $_POST['txt_password'] != ''){
         $data = new Data();
-        $run = $data->login_user($_POST['txt_username']);
+        $run = $data->login_user($_POST['txt_email']);
+
                 $num = mysqli_num_rows($run);
                 if($num != 0){
-                    echo "user name đã tồn tại";
+                    echo "email đã tồn tại";
                     exit();
                 }
                 else{
-                    foreach ($_POST['txt_hobby'] as $va_hobby) {
-                        $hobby.=$va_hobby;
+                    $regiter = $data->user(
+                        $_POST['txt_username'], 
+                        $_POST['txt_gender'],
+                        $_POST['txt_email'],
+                        $_POST['txt_phone'],
+                        $_POST['txt_password'],
+                        $_POST['txt_hobby'],
+                        $_FILES['txt_file']['name']
+                    ); 
+                    if($regiter){
+                        
+                        move_uploaded_file($_FILES['txt_file']['tmp_name'],
+                        'upload/'.$_FILES['txt_file']['name']);
+                        
+                        header("Location:login.php");
                     }
-                    echo $hobby;
-                    move_uploaded_file($_FILES['txt_file']['tmp_name'],
-                    'upload/'.$_FILES['txt_file']['name']);
+                    else{
+
+                        header("Location:regiter.php");
+                        
+                    }
                 }
-                $regiter = $data->regiter(
-                    $_POST['txt_username'], 
-                    $_POST['txt_gender'],
-                    $_POST['txt_email'],
-                    $_POST['txt_phone'],
-                    $_POST['txt_password'],
-                    $hobby,
-                    $_FILES['txt_file']['name']
-                ); 
-                if($regiter){
-                    echo "đăng ký thành công";
-                }
-        
-        
     }
-    else
-    echo "đăng ký không thành công";
+    
     ?>
-    <img src="upload/<?php echo $_FILES['txt_file']['name']?>" width = "70%"; height = "70%">
+    
 </body>
 </html>
