@@ -14,7 +14,7 @@ session_start();
 <body>
     <div class="container">
         
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             <input type="email" name="txt_email" placeholder="Email" > <br>
             <input type="password" name="txt_password" placeholder="Password" > <br>
             <input type="submit"  name="submit" value="Login" class="submit"> <br>
@@ -37,14 +37,15 @@ session_start();
             }
             else{
                 $login = $data->login($_POST['txt_email'], $_POST['txt_password']);
-                echo$login;
+                
                 if($login !=1){
                     echo "<script> alert('Mật khẩu không đúng')</script>";
                 }
                 else{
+                    move_uploaded_file($_FILES['txt_file']['tmp_name'],$_FILES['txt_file']['name']);
+                    $_SESSION['username'] = $_POST['txt_email'];
                     echo "<script> alert('Đăng nhập thành công')</script>";
 
-                    $_SESSION['username'] = $_POST['txt_email'];
                     
                     header("location:admin.php");
                 }

@@ -15,7 +15,6 @@
 
         public function login($email, $password){   
             // kiểm tra email và password xem đúng ko nếu đúng cho login
-
             global $conn;
             $sql = " SELECT * FROM user WHERE email = '$email' and password = '$password'";
             $run = mysqli_query($conn,$sql);
@@ -25,7 +24,6 @@
 
         public function login_user($email){  
             // kiểm tra email
-
             global $conn;
             $sql = "SELECT * FROM user WHERE email = '$email' ";
             $run = mysqli_query($conn,$sql);
