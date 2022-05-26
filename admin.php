@@ -58,7 +58,6 @@
 
     <img src="upload/<?php echo$get_avatar?>" class="img" >
     <a href="logout.php" class="out">Logout </a>
-    
     </div>
 </body>
 </html>
