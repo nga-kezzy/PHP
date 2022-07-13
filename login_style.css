@@ -1,0 +1,14 @@
+.container{
+    width: 300px;
+    padding-top:40px;
+    margin:  auto;
+    text-align:center;
+}
+
+input[type="password"]{
+    margin-top: 10px;
+}
+input[type="submit"]{
+    margin-top: 20px;
+    background-color: pink;
+}
